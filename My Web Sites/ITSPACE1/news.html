@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>ITSPACE — Новости о космосе</title>
+    <link rel="stylesheet" href="CSS/StyleSheet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body class="main-bg">
+    <div id="app">
+
+
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo-link">ITSPACE</a>
+            </div>
+
+            <div class="icons">
+                <span class="icon">
+                    <img src="image/search.png" alt="Поиск" class="icon-img" title="Поиск" />
+                </span>
+                <span class="icon menu-icon" id="burgerMenu"></span>
+            </div>
+        </nav>
+
+ 
+        <div id="sideMenu" class="side-menu">
+            <a href="index.html" class="side-link">Главная</a>
+            <a href="page_2.html" class="side-link">Солнечная система</a>
+            <a href="stars.html" class="side-link">Другие звёзды</a>
+            <a href="forma.html" class="side-link">Обратная связь</a>
+        </div>
+
+       
+        <main class="content">
+            <div class="content-wrapper">
+                <h1 class="title">Новости космоса</h1>
+
+               
+                <p class="subtitle">Поиск по заголовку:</p>
+                <input type="text" v-model="searchQuery" class="form-input" placeholder="Введите ключевое слово" />
+                <p class="subtitle">Вы ищете: "{{ searchQuery }}"</p>
+
+              
+                <div v-for="news in filteredNews" :key="news.id" class="card">
+                    <h2>{{ news.title }}</h2>
+                    <p>{{ news.summary }}</p>
+                    <p v-if="news.showDate" class="subtitle">Дата публикации: {{ news.date }}</p>
+                    <button class="btn-link" @click="toggleDate(news)">Показать/Скрыть дату</button>
+                </div>
+            </div>
+        </main>
+
+      
+        <footer class="footer">
+            <p class="footer-left">© 2025 ITSPACE. Все права защищены.</p>
+            <div class="footer-right">
+                <a href="#"><img src="image/inst.png" alt="Instagram" /></a>
+                <a href="#"><img src="image/x-twiter.png" alt="X (Twitter)" /></a>
+                <a href="#"><img src="image/telegram.png" alt="Telegram" /></a>
+            </div>
+        </footer>
+    </div>
+
+  
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                searchQuery: "",
+                newsList: [
+                    { id: 1, title: "NASA отправит новый телескоп", summary: "Телескоп для изучения тёмной материи...", date: "2025-05-01", showDate: false },
+                    { id: 2, title: "Обнаружена новая экзопланета", summary: "Учёные нашли планету в зоне обитаемости...", date: "2025-04-28", showDate: false },
+                    { id: 3, title: "Китай завершил постройку станции", summary: "Орбитальная станция теперь полностью автономна...", date: "2025-04-20", showDate: false },
+                    { id: 4, title: "Илон Маск анонсировал Starship 2", summary: "Новая версия будет мощнее в 3 раза...", date: "2025-03-30", showDate: false },
+                    { id: 5, title: "Луна — снова в приоритете", summary: "NASA возвращается к исследованиям Луны...", date: "2025-03-15", showDate: false },
+                    { id: 6, title: "Солнце достигло пика активности", summary: "Учёные фиксируют мощные вспышки на поверхности...", date: "2025-02-25", showDate: false },
+                    { id: 7, title: "Новый спутник запущен ESA", summary: "Спутник будет отслеживать климат Земли...", date: "2025-02-10", showDate: false },
+                    { id: 8, title: "Россия отправила миссию на Венеру", summary: "Миссия 'Венера-Д' стартовала успешно...", date: "2025-01-29", showDate: false },
+                    { id: 9, title: "James Webb сделал уникальное фото", summary: "Глубокий снимок галактики удивил астрофизиков...", date: "2025-01-10", showDate: false },
+                    { id: 10, title: "Запуск ракеты Ariane 6 перенесён", summary: "Из-за технических неполадок запуск отложен...", date: "2024-12-22", showDate: false }
+                ]
+            },
+            computed: {
+                filteredNews() {
+                    const query = this.searchQuery.toLowerCase();
+                    return this.newsList.filter(n => n.title.toLowerCase().includes(query));
+                }
+            },
+            methods: {
+                toggleDate(newsItem) {
+                    newsItem.showDate = !newsItem.showDate;
+                }
+            }
+        });
+    </script>
+
+  
+    <script src="JS/Script.js"></script>
+</body>
+</html>
