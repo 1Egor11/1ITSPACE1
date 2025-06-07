@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Марс — ITSPACE</title>
+    <link href="CSS/StyleSheet.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body class="main-bg">
+    <div id="app">
+
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo-link">ITSPACE</a>
+            </div>
+
+            <div class="icons">
+                <span class="icon">
+                    <img src="image/search.png"
+                         alt="Поиск"
+                         class="icon-img"
+                         title="Поиск"
+                         @click="toggleSearch" />
+                </span>
+                <span class="icon menu-icon" id="burgerMenu"></span>
+            </div>
+        </nav>
+
+        <div id="sideMenu" class="side-menu">
+            <a href="index.html" class="side-link">Главная</a>
+            <a href="page_2.html" class="side-link">Солнечная система</a>
+            <a href="stars.html" class="side-link">Другие звёзды</a>
+            <a href="forma.html" class="side-link">Обратная связь</a>
+            <a href="news.html" class="side-link">Новости</a>
+        </div>
+
+        <div class="search-flyout" :class="{ active: searchVisible }">
+            <input type="text" placeholder="Поиск..." v-model="query" />
+        </div>
+
+
+        <div class="search-results" v-if="query.trim() && searchVisible">
+            <a v-for="page in filteredPages" :key="page.url" :href="page.url">
+                {{ page.title }}
+            </a>
+            <p v-if="filteredPages.length === 0" class="subtitle">Ничего не найдено.</p>
+        </div>
+
+        <main class="planet-page">
+            <div class="planet-info-container">
+                <div class="planet-image">
+                    <img src="image/mars.png" alt="Марс" class="planet-img">
+                </div>
+
+                <div class="planet-details">
+                    <h1 class="planet-title">Марс</h1>
+                    <p class="planet-description">Марс — четвёртая планета от Солнца, известен как 'Красная планета' из-за оксида железа на поверхности.</p>
+
+                    <div class="planet-specs">
+                        <p><strong>Масса:</strong> 6.417 × 10²³ кг</p>
+                        <p><strong>Радиус:</strong> 3,390 км</p>
+                        <p><strong>Температура:</strong> ~-60°C</p>
+                        <p><strong>Орбитальный период:</strong> 687 дней</p>
+                    </div>
+
+                    <div class="planet-buttons">
+                        <div class="moon-btn-container">
+                            <button class="btn-link moon-btn">Спутники</button>
+                            <div class="moon-menu">
+                                <a href="phobos.html">Фобос</a>
+                                <a href="deimos.html">Деймос</a>
+                            </div>
+                        </div>
+                        <a href="page_2.html" class="btn-link">Исследовать другую планету</a>
+                    </div>
+
+                    <div class="planet-facts">
+                        <h2>Интересные факты</h2>
+                        <ul>
+                            <li>На Марсе находятся самые большие вулканы в Солнечной системе.</li>
+                            <li>У Марса два спутника — Фобос и Деймос.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p class="footer-left">© 2025 ITSPACE. Все права защищены.</p>
+            <div class="footer-right">
+                <a href="#"><img src="image/inst.png" alt="Instagram"></a>
+                <a href="#"><img src="image/x-twiter.png" alt="X (Twitter)"></a>
+                <a href="#"><img src="image/telegram.png" alt="Telegram"></a>
+            </div>
+        </footer>
+
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    query: "",
+                    searchVisible: false,
+                    pages: [
+                        { title: "Главная страница", url: "index.html" },
+                        { title: "Солнечная система", url: "page_2.html" },
+                        { title: "Другие звёзды", url: "stars.html" },
+                        { title: "Обратная связь", url: "forma.html" },
+                        { title: "Солнце", url: "sun.html" },
+                        { title: "Земля", url: "Earth.html" },
+                        { title: "Меркурий", url: "mercury.html" },
+                        { title: "Венера", url: "venus.html" },
+                        { title: "Марс", url: "mars.html" },
+                        { title: "Юпитер", url: "jupiter.html" },
+                        { title: "Сатурн", url: "saturn.html" },
+                        { title: "Нептун", url: "neptune.html" },
+                        { title: "Уран", url: "uranus.html" },
+                        { title: "Новости", url: "news.html" },
+                        { title: "Вега", url: "vega.html" },
+                        { title: "Бетельгейзе", url: "betelgeuse.html" },
+                        { title: "Проксима Центавра", url: "proximaCentauri.html" },
+                        { title: "Сириус", url: "sirius.html" },,
+                        { title: "Траппист-1", url: "trappist-1.html" },
+                        { title: "Полярная звезда", url: "northstar.html" },
+                        { title: "Антарес", url: "antares.html" },
+                        { title: "Ригель", url: "rigel.html" },
+                        { title: "Канопус", url: "canopus.html" }
+                    ]
+                },
+                computed: {
+                    filteredPages() {
+                        const q = this.query.toLowerCase();
+                        return this.pages.filter(p => p.title.toLowerCase().includes(q));
+                    }
+                },
+                methods: {
+                    toggleSearch() {
+                        this.searchVisible = !this.searchVisible;
+                        this.query = "";
+                    }
+                },
+                mounted() {
+                    document.addEventListener("keydown", (e) => {
+                        if (e.key === "Escape") this.searchVisible = false;
+                    });
+                }
+            });
+        </script>
+    </div>
+    <div>
+        <button id="themeToggle" class="theme-toggle">🌓</button>
+    </div>
+    <script src="JS/Script.js"></script>
+</body>
+</html>
