@@ -65,7 +65,13 @@
                     </div>
 
                     <div class="planet-buttons">
-                        <a href="page_2.html" class="btn-link dark">Исследовать другую планету </a>
+                        <div class="moon-btn-container">
+                            <button class="btn-link moon-btn">Спутники</button>
+                            <div class="moon-menu">
+                                <a href="triton.html">Тритон</a>
+                            </div>
+                        </div>
+                        <a href="page_2.html" class="btn-link">Исследовать другую планету</a>
                     </div>
 
                     <div class="planet-facts">
@@ -109,10 +115,15 @@
                         { title: "Нептун", url: "neptune.html" },
                         { title: "Уран", url: "uranus.html" },
                         { title: "Новости", url: "news.html" },
-                        { title: "Вега", url: "#" },
-                        { title: "Бетельгейзе", url: "#" },
-                        { title: "Проксима Центавра", url: "#" },
-                        { title: "Сириус", url: "#" }
+                        { title: "Вега", url: "vega.html" },
+                        { title: "Бетельгейзе", url: "betelgeuse.html" },
+                        { title: "Проксима Центавра", url: "proximaCentauri.html" },
+                        { title: "Сириус", url: "sirius.html" },,
+                        { title: "Траппист-1", url: "trappist-1.html" },
+                        { title: "Полярная звезда", url: "northstar.html" },
+                        { title: "Антарес", url: "antares.html" },
+                        { title: "Ригель", url: "rigel.html" },
+                        { title: "Канопус", url: "canopus.html" }
                     ]
                 },
                 computed: {
@@ -135,6 +146,9 @@
             });
         </script>
     </div>
-        <script src="JS/Script.js"></script>
+    <div>
+        <button id="themeToggle" class="theme-toggle">🌓</button>
+    </div>
+    <script src="JS/Script.js"></script>
 </body>
 </html>
