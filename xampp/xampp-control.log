@@ -1,0 +1,55 @@
+16:24:16  [main] 	Initializing Control Panel
+16:24:16  [main] 	Windows Version:  Enterprise  64-bit
+16:24:16  [main] 	XAMPP Version: 8.2.12
+16:24:16  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+16:24:16  [main] 	You are not running with administrator rights! This will work for
+16:24:16  [main] 	most application stuff but whenever you do something with services
+16:24:16  [main] 	there will be a security dialogue or things will break! So think 
+16:24:16  [main] 	about running this application with administrator rights!
+16:24:16  [main] 	XAMPP Installation Directory: "d:\xampp\"
+16:24:16  [main] 	Checking for prerequisites
+16:24:19  [main] 	All prerequisites found
+16:24:19  [main] 	Initializing Modules
+16:24:19  [main] 	Starting Check-Timer
+16:24:19  [main] 	Control Panel Ready
+16:24:21  [Apache] 	Attempting to start Apache app...
+16:24:22  [Apache] 	Status change detected: running
+16:24:22  [mysql] 	Attempting to start MySQL app...
+16:24:23  [filezilla] 	Attempting to start FileZilla app...
+16:24:23  [mysql] 	Status change detected: running
+16:24:23  [filezilla] 	Status change detected: running
+19:21:49  [main] 	Executing "d:\xampp\"
+19:25:03  [filezilla] 	Attempting to stop FileZilla app...
+19:25:03  [filezilla] 	Status change detected: stopped
+19:25:03  [mysql] 	Attempting to stop MySQL app...
+19:25:03  [mysql] 	Status change detected: stopped
+19:25:04  [Apache] 	Attempting to stop Apache (PID: 13916)
+19:25:04  [Apache] 	Attempting to stop Apache (PID: 14720)
+19:25:04  [Apache] 	Status change detected: stopped
+19:25:04  [Apache] 	Attempting to start Apache app...
+19:25:05  [mysql] 	Attempting to start MySQL app...
+19:25:05  [Apache] 	Status change detected: running
+19:25:05  [mysql] 	Status change detected: running
+19:25:05  [filezilla] 	Attempting to start FileZilla app...
+19:25:06  [filezilla] 	Status change detected: running
+19:40:52  [mysql] 	Status change detected: stopped
+19:40:52  [mysql] 	Error: MySQL shutdown unexpectedly.
+19:40:52  [mysql] 	This may be due to a blocked port, missing dependencies, 
+19:40:52  [mysql] 	improper privileges, a crash, or a shutdown by another method.
+19:40:52  [mysql] 	Press the Logs button to view error logs and check
+19:40:52  [mysql] 	the Windows Event Viewer for more clues
+19:40:52  [mysql] 	If you need more help, copy and post this
+19:40:52  [mysql] 	entire log window on the forums
+19:40:52  [mysql] 	Status change detected: running
+19:49:01  [Apache] 	Status change detected: stopped
+19:49:01  [Apache] 	Error: Apache shutdown unexpectedly.
+19:49:01  [Apache] 	This may be due to a blocked port, missing dependencies, 
+19:49:01  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+19:49:01  [Apache] 	Press the Logs button to view error logs and check
+19:49:01  [Apache] 	the Windows Event Viewer for more clues
+19:49:01  [Apache] 	If you need more help, copy and post this
+19:49:01  [Apache] 	entire log window on the forums
+19:49:02  [Apache] 	Status change detected: running
+21:20:29  [main] 	Deinitializing Modules
+21:20:29  [main] 	Deinitializing Control Panel
+
